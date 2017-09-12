@@ -10,6 +10,7 @@ services:
     networks:
     - proxy
     deploy:
+      replicas: 2
       labels:
       - traefik.frontend.rule=PathPrefixStrip:/nginx
       - traefik.docker.network=proxy
@@ -20,6 +21,7 @@ services:
     networks:
     - proxy
     deploy:
+      replicas: 2
       labels:
       - traefik.frontend.rule=PathPrefixStrip:/apache
       - traefik.docker.network=proxy
@@ -30,6 +32,7 @@ services:
     networks:
     - proxy
     deploy:
+      replicas: 2
       labels:
       - traefik.frontend.rule=PathPrefixStrip:/caddy
       - traefik.docker.network=proxy

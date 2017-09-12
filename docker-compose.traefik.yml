@@ -21,6 +21,7 @@ services:
   traefik:
     image: traefik:1.4
     deploy:
+      replicas: 2
       placement:
         constraints:
         - node.role == manager
@@ -59,6 +60,7 @@ services:
     networks:
     - proxy
     deploy:
+      replicas: 2
       labels:
       - traefik.frontend.entryPoints=http
       - traefik.frontend.rule=PathPrefix:/
